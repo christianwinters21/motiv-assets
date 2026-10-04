@@ -40,16 +40,6 @@
     box-shadow: 0 12px 40px rgba(20, 33, 26, 0.28);
     overflow: hidden;
   }
-  .close-x {
-    position: absolute; top: 14px; right: 14px; z-index: 5;
-    width: 30px; height: 30px; border-radius: 50%;
-    background: #EDF1EE; border: none; cursor: pointer; padding: 0;
-    display: flex; align-items: center; justify-content: center;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  .card.show-x .close-x { opacity: 1; pointer-events: auto; }
-  .close-x:active { background: #DCEDE4; }
 
   /* ---- pager ---- */
   .pages {
@@ -179,7 +169,6 @@
 </head>
 <body>
   <div class="card" id="iam-card">
-    <button class="close-x" id="cta-dismiss" data-onesignal-unique-label="one-percent-launch-dismiss" aria-label="Dismiss"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M1.5 1.5L10.5 10.5M10.5 1.5L1.5 10.5" stroke="#7d8a80" stroke-width="2" stroke-linecap="round"/></svg></button>
 
     <div class="pages" id="pages">
 
@@ -226,7 +215,7 @@
     var DEEP_LINK = "";
 
     var AVG_STEPS = 10000, GOAL_STEPS = 10100;
-    var TICK_DELAY_MS = 1450, TICK_MS = 750, LOOP_MS = 7000, X_DELAY_MS = 3000;
+    var TICK_DELAY_MS = 1450, TICK_MS = 750, LOOP_MS = 7000;
     var SUBHEAD_TEXT = "We help you get" + String.fromCharCode(10) + "1% better every day";
     var P1_TYPE_START_MS = 500, P1_TYPE_MS = 75, TYPE_START_MS = 550, TYPE_MS = 50, HOLD_AFTER_TYPE_MS = 1100, REVEAL_MS = 2700;
 
@@ -306,7 +295,6 @@
           }, TYPE_MS);
         }, TYPE_START_MS);
       }
-      setTimeout(function () { card.classList.add("show-x"); }, X_DELAY_MS);
     }
 
     function initIam() {
@@ -325,9 +313,6 @@
         } else {
           OneSignalIamApi.close(e);
         }
-      });
-      document.getElementById("cta-dismiss").addEventListener("click", function (e) {
-        OneSignalIamApi.close(e);
       });
       document.getElementById("page-1").addEventListener("click", goToPage2);
 
