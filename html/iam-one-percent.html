@@ -20,11 +20,12 @@
   set DEEP_LINK below to a Branch URL and it will openUrl instead of close.
 -->
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { background: transparent; }
   body { background: rgba(16, 24, 19, 0.5); } /* dimmed backdrop; taps on it do nothing */
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
     display: flex; align-items: center; justify-content: center;
     min-height: 100vh; padding: 18px;
     -webkit-font-smoothing: antialiased;
@@ -42,13 +43,13 @@
   .close-x {
     position: absolute; top: 14px; right: 14px; z-index: 5;
     width: 30px; height: 30px; border-radius: 50%;
-    background: #f0f4f1; border: none; cursor: pointer; padding: 0;
+    background: #EDF1EE; border: none; cursor: pointer; padding: 0;
     display: flex; align-items: center; justify-content: center;
     opacity: 0; pointer-events: none;
     transition: opacity 0.3s ease;
   }
   .card.show-x .close-x { opacity: 1; pointer-events: auto; }
-  .close-x:active { background: #e2e8e3; }
+  .close-x:active { background: #DCEDE4; }
 
   /* ---- pager ---- */
   .pages {
@@ -67,11 +68,11 @@
   .alert-pill {
     position: relative; overflow: hidden;
     display: inline-flex; align-items: center; gap: 8px;
-    background: linear-gradient(120deg, #189150, #0f6b3a);
+    background: linear-gradient(120deg, #21835A, #17724A);
     color: #ffffff; font-size: 12px; font-weight: 800;
     letter-spacing: 1.8px; text-transform: uppercase;
     padding: 9px 18px; border-radius: 99px;
-    box-shadow: 0 4px 14px rgba(24, 145, 80, 0.35);
+    box-shadow: 0 4px 14px rgba(33, 131, 90, 0.35);
     animation: pill-pulse 2.2s ease-in-out infinite;
   }
   .alert-pill::after {
@@ -91,18 +92,18 @@
     100% { left: 130%; }
   }
   #page-1 h1 {
-    font-size: 30px; line-height: 1.18; font-weight: 800; color: #14211a;
+    font-size: 30px; line-height: 1.18; font-weight: 800; color: #182125;
     letter-spacing: -0.5px; min-height: 2.4em;
   }
   .tap-hint {
-    font-size: 11.5px; font-weight: 600; color: #9aa8a0;
+    font-size: 11.5px; font-weight: 600; color: #7C8A82;
     opacity: 0; transition: opacity 0.5s ease;
   }
   .tap-hint.in { opacity: 1; }
 
   /* ---- page 2: the reveal ---- */
   .subhead {
-    font-size: 18px; font-weight: 800; color: #189150;
+    font-size: 18px; font-weight: 800; color: #21835A;
     letter-spacing: -0.2px; margin-bottom: 5px; margin-top: 2px;
     text-align: center; padding: 0 16px; line-height: 1.3;
     min-height: 2.6em; /* two lines reserved: typing must not change the card height */
@@ -112,7 +113,7 @@
   #subhead-text { white-space: pre-line; }
   .type-caret {
     display: inline-block; width: 2.5px; height: 1em;
-    background: #189150; margin-left: 3px; vertical-align: -0.12em;
+    background: #21835A; margin-left: 3px; vertical-align: -0.12em;
     animation: caret-blink 0.85s step-end infinite;
   }
   .typed .type-caret { display: none; }
@@ -130,25 +131,25 @@
   #page-2.revealed .goal-card { transition-delay: 1.15s; }
   #page-2.revealed .how       { transition-delay: 1.4s; }
   .sub {
-    font-size: 14px; line-height: 1.45; color: #5b6b61; margin-bottom: 14px;
+    font-size: 14px; line-height: 1.45; color: #5C6970; margin-bottom: 14px;
     text-align: center;
   }
-  .sub b { color: #14211a; }
+  .sub b { color: #182125; }
 
   /* ---- animated goal-bar card (mirrors the new onboarding goal screen) ---- */
   .goal-card {
-    border: 1px solid #e4ebe6;
+    border: 1px solid #E3E1DD;
     border-radius: 16px;
     padding: 14px 16px 10px;
     margin-bottom: 12px;
   }
   .goal-label {
     font-size: 10.5px; font-weight: 600; letter-spacing: 1.4px;
-    color: #9aa8a0; text-transform: uppercase; margin-bottom: 4px;
+    color: #7C8A82; text-transform: uppercase; margin-bottom: 4px;
   }
   .goal-nums { display: flex; align-items: baseline; gap: 6px; margin-bottom: 2px; }
-  .goal-nums .cur { font-size: 26px; font-weight: 800; color: #14211a; letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
-  .goal-nums .unit { font-size: 13px; font-weight: 600; color: #b7c2bb; }
+  .goal-nums .cur { font-size: 26px; font-weight: 800; color: #182125; letter-spacing: -0.5px; font-variant-numeric: tabular-nums; }
+  .goal-nums .unit { font-size: 13px; font-weight: 600; color: #9AA19D; }
   .gbar svg { display: block; width: 100%; height: auto; }
   .gbar .avg-rect {
     transform: scaleY(0); transform-origin: 150px 150px;
@@ -169,13 +170,13 @@
   .gbar .lab-g { opacity: 0; }
   .goal-card.play .lab-g { opacity: 1; transition: opacity 0.45s ease 1.45s; }
   .goal-cap {
-    font-size: 11.5px; font-weight: 600; color: #9aa8a0;
+    font-size: 11.5px; font-weight: 600; color: #7C8A82;
     text-align: center; margin: 6px 0 2px;
   }
 
   /* ---- how-it-works rows ---- */
   .how {
-    border: 1px solid #e4ebe6; border-radius: 16px;
+    border: 1px solid #E3E1DD; border-radius: 16px;
     padding: 6px 14px; margin-bottom: 16px;
   }
   .how-row {
@@ -183,7 +184,7 @@
     padding: 9px 0;
     opacity: 0; transform: translateX(-8px);
   }
-  .how-row + .how-row { border-top: 1px solid #eef3ef; }
+  .how-row + .how-row { border-top: 1px solid #EDF1EE; }
   #page-2.revealed .how-row {
     opacity: 1; transform: none;
     transition: opacity 0.6s ease, transform 0.6s ease;
@@ -193,20 +194,20 @@
   #page-2.revealed .how-row:nth-child(3) { transition-delay: 2.7s; }
   .how-ic {
     width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
-    background: #e7f4ec; display: flex; align-items: center; justify-content: center;
+    background: #D9F2E1; display: flex; align-items: center; justify-content: center;
   }
-  .how-tx { font-size: 12.5px; line-height: 1.35; color: #5b6b61; }
-  .how-tx b { color: #14211a; }
+  .how-tx { font-size: 12.5px; line-height: 1.35; color: #5C6970; }
+  .how-tx b { color: #182125; }
 
   .cta {
     opacity: 0; transform: translateY(10px); pointer-events: none;
     display: block; width: 100%;
-    background: #189150; color: #ffffff;
-    border: none; border-radius: 14px;
+    background: #21835A; color: #ffffff;
+    border: none; border-radius: 999px;
     font-family: inherit; font-size: 16px; font-weight: 700;
     padding: 15px 16px; cursor: pointer;
   }
-  .cta:active { background: #0f6b3a; }
+  .cta:active { background: #17724A; }
   #page-2.cta-in .cta {
     opacity: 1; transform: none; pointer-events: auto;
     transition: opacity 0.8s ease, transform 0.8s ease;
@@ -252,13 +253,13 @@
           </div>
           <div class="gbar">
             <svg viewBox="0 0 300 158" aria-label="Your goal is 1% above your 30-day average">
-              <rect class="avg-rect" x="122" y="48" width="56" height="102" rx="6" fill="#189150"/>
+              <rect class="avg-rect" x="122" y="48" width="56" height="102" rx="6" fill="#21835A"/>
               <g class="plus-g">
-                <rect x="122" y="24" width="56" height="22" rx="6" fill="#5fb8e6"/>
-                <text x="150" y="39.5" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">+1%</text>
+                <rect x="122" y="24" width="56" height="22" rx="6" fill="#7ED9A7"/>
+                <text x="150" y="39.5" text-anchor="middle" font-size="11" font-weight="800" fill="#1E4A34">+1%</text>
               </g>
-              <g class="lab-a"><line x1="14" y1="48" x2="118" y2="48" stroke="#189150" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/><text x="14" y="37" font-size="10.5" font-weight="700" fill="#189150" letter-spacing=".04em">YOUR AVERAGE</text><text x="14" y="66" font-size="14" font-weight="800" fill="#189150">7,412</text></g>
-              <g class="lab-g"><line x1="182" y1="24" x2="286" y2="24" stroke="#2f8fc7" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/><text x="286" y="13" text-anchor="end" font-size="10.5" font-weight="700" fill="#2f8fc7" letter-spacing=".04em">YOUR GOAL</text><text x="286" y="42" text-anchor="end" font-size="14" font-weight="800" fill="#2f8fc7">7,486</text></g>
+              <g class="lab-a"><line x1="14" y1="48" x2="118" y2="48" stroke="#7C8A82" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/><text x="14" y="37" font-size="10.5" font-weight="700" fill="#7C8A82" letter-spacing=".04em">YOUR AVERAGE</text><text x="14" y="66" font-size="14" font-weight="800" fill="#7C8A82">7,412</text></g>
+              <g class="lab-g"><line x1="182" y1="24" x2="286" y2="24" stroke="#21835A" stroke-width="2" stroke-dasharray="3 5" stroke-linecap="round"/><text x="286" y="13" text-anchor="end" font-size="10.5" font-weight="700" fill="#21835A" letter-spacing=".04em">YOUR GOAL</text><text x="286" y="42" text-anchor="end" font-size="14" font-weight="800" fill="#21835A">7,486</text></g>
             </svg>
           </div>
           <div class="goal-cap">1% above your previous 30-day average</div>
@@ -266,15 +267,15 @@
 
         <div class="how p2-rest" id="how" aria-hidden="true">
           <div class="how-row">
-            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9" stroke="#189150" stroke-width="2.4" stroke-linecap="round"/><path d="M12 7v5l3 3" stroke="#189150" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 9-9" stroke="#21835A" stroke-width="2.4" stroke-linecap="round"/><path d="M12 7v5l3 3" stroke="#21835A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="how-tx"><b>Updates daily</b> from your last 30 days of steps</span>
           </div>
           <div class="how-row">
-            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 17l6-6 4 4 6-7" stroke="#189150" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8V5h-3" stroke="#189150" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 17l6-6 4 4 6-7" stroke="#21835A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 8V5h-3" stroke="#21835A" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             <span class="how-tx"><b>Grows as you do.</b> Big month, higher bar</span>
           </div>
           <div class="how-row">
-            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2.5" stroke="#189150" stroke-width="2.4"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#189150" stroke-width="2.4" stroke-linecap="round"/></svg></span>
+            <span class="how-ic"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2.5" stroke="#21835A" stroke-width="2.4"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#21835A" stroke-width="2.4" stroke-linecap="round"/></svg></span>
             <span class="how-tx"><b>Challenge goals still lock</b> when the challenge starts</span>
           </div>
         </div>
